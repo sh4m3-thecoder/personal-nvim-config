@@ -34,7 +34,7 @@ return require('packer').startup(
 		use 'mhinz/vim-startify'
 
 		-- bufferline
-		use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}	
+		use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
 		-- Code Completion
 		use {
@@ -55,6 +55,15 @@ return require('packer').startup(
 
 		-- lspkind
 		use 'onsails/lspkind.nvim'
+
+		-- telescope
+		use {
+			'nvim-telescope/telescope.nvim',
+			requires = {{'nvim-lua/plenary.nvim'}}
+		}
+
+		-- vim-fugitive
+		use 'tpope/vim-fugitive'
     end)
 
 

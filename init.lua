@@ -9,5 +9,6 @@ require("lsp-configuration")
 require("config-for-bufferline")
 require("discord-config")
 require("completion-config")
+require("teleconfig")
 
 
