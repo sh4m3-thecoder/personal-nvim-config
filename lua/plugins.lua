@@ -55,6 +55,12 @@ return require('packer').startup(
 
 		-- lspkind
 		use 'onsails/lspkind.nvim'
+
+		-- telescope
+		use 'nvim-telescope/telescope.nvim'
+
+		-- vim-fugitive
+		use 'tpope/vim-fugitive'
     end)
 
 
