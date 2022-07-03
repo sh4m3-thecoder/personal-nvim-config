@@ -1,4 +1,5 @@
 require("luasnip.loaders.from_vscode").lazy_load()
+local lsp_installer = require("nvim-lsp-installer")
 local lspkind = require('lspkind')
 
 local cmp = require'cmp'
@@ -80,6 +81,14 @@ require('lspconfig')['sumneko_lua'].setup {
 }
 
 require('lspconfig')['pyright'].setup {
+	capabilities = capabilities
+}
+
+require('lspconfig')['clangd'].setup {
+	capabilities = capabilities
+}
+
+require('lspconfig')['marksman'].setup {
 	capabilities = capabilities
 }
 
