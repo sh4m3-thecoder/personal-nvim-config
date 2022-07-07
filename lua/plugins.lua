@@ -27,11 +27,16 @@ return require('packer').startup(
 			tag = 'nightly'
 		}
 
-		--vim-closer
-		use 'rstacruz/vim-closer'
+		-- auto pairs
+		use 'jiangmiao/auto-pairs'
 
-		--startify
-		use 'mhinz/vim-startify'
+		-- startup
+		use {'startup-nvim/startup.nvim',
+			requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+			config = function()
+				require"startup".setup()
+			end
+		}
 
 		-- bufferline
 		use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}

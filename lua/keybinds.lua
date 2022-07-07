@@ -23,7 +23,7 @@ keymap('n', '[B', ':BufferLineMovePrev <CR>', ns)
 --Lsp keymaps
 
 local function nkeymap(key,map)
-	keymap('n', key, map, n)
+	keymap('n', key, map, ns)
 end
 
 nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')

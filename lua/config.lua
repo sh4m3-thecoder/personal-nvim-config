@@ -11,7 +11,8 @@ window.cul = true
 buffer.autoindent = true
 buffer.softtabstop = 4
 buffer.tabstop = 4
-
+buffer.smartindent = true
+buffer.autoindent = true
 
 --Global Customization
 global.lazyredraw = true
