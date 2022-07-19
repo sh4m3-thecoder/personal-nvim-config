@@ -1,22 +1,20 @@
-local window = vim.wo
-local buffer = vim.bo
-local global = vim.o
-
 --Window Customizations
-window.number = true
-window.relativenumber = true
-window.cul = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cul = true
 
---Buffer Customizations
-buffer.autoindent = true
-buffer.softtabstop = 4
-buffer.tabstop = 4
-buffer.smartindent = true
-buffer.autoindent = true
+-- Buffer Customizations
+vim.opt.autoindent = true
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 --Global Customization
-global.lazyredraw = true
+vim.opt.lazyredraw = true
 
+-- Shell Customization
+vim.opt.shell = "pwsh.exe"
 
 --Launch nvim-tree
 require("nvim-tree").setup({

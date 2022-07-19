@@ -3,9 +3,9 @@ return require('packer').startup(
 		--Packer
 		use 'wbthomason/packer.nvim'
 
-		--Cobalt2 colorscheme
+		--Cobalt2 and onedark colorscheme
 		use { 'lalitmee/cobalt2.nvim', requires = 'tjdevries/colorbuddy.nvim' }
-
+		use { 'navarasu/onedark.nvim' }
 		--Treesitter
 		use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
@@ -69,6 +69,12 @@ return require('packer').startup(
 
 		-- vim-fugitive
 		use 'tpope/vim-fugitive'
+
+		-- xml-lua.vim
+		use 'XeroOl/xml-lua.vim'
+
+		-- coderunner
+		use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
     end)
 
 

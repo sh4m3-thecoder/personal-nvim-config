@@ -164,6 +164,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
@@ -179,6 +184,12 @@ _G.packer_plugins = {
     path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\presence.nvim",
     url = "https://github.com/andweeb/presence.nvim"
   },
+  ["startup.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fstartup\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\startup.nvim",
+    url = "https://github.com/startup-nvim/startup.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
@@ -189,14 +200,18 @@ _G.packer_plugins = {
     path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vim-startify"] = {
+  ["xml-lua.vim"] = {
     loaded = true,
-    path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-startify",
-    url = "https://github.com/mhinz/vim-startify"
+    path = "C:\\Users\\Lenovo\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\xml-lua.vim",
+    url = "https://github.com/XeroOl/xml-lua.vim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: startup.nvim
+time([[Config for startup.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fstartup\frequire\0", "config", "startup.nvim")
+time([[Config for startup.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
