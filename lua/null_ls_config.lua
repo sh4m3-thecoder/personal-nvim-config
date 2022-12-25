@@ -16,6 +16,8 @@ local sources = {
 null_ls.setup({
 	sources = sources,
 	on_attach = function(client)
-		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = false})")
+		if client.server_capabilities.documentFormattingProvider then
+			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = false})")
+		end
 	end,
 })
