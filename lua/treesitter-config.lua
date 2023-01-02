@@ -1,8 +1,7 @@
 --Treesitter Config
-local configs = require'nvim-treesitter.configs'
-configs.setup {
+local configs = require("nvim-treesitter.configs")
+configs.setup({
 	ensure_installed = "all",
-	highlight = {enable = true},
-	indent = {enable = true}
-}
-
+	highlight = { enable = true },
+	indent = { enable = true },
+})

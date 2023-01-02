@@ -1,3 +1,46 @@
+--Navic setup
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+local navic = require("nvim-navic")
+navic.setup({
+	icons = {
+		File = " ",
+		Module = " ",
+		Namespace = " ",
+		Package = " ",
+		Class = " ",
+		Method = " ",
+		Property = " ",
+		Field = " ",
+		Constructor = " ",
+		Enum = " ",
+		Interface = " ",
+		Function = " ",
+		Variable = " ",
+		Constant = " ",
+		String = " ",
+		Number = " ",
+		Boolean = " ",
+		Array = " ",
+		Object = " ",
+		Key = " ",
+		Null = " ",
+		EnumMember = " ",
+		Struct = " ",
+		Event = " ",
+		Operator = " ",
+		TypeParameter = " ",
+	},
+	highlight = true,
+	separator = " > ",
+	depth_limit = 0,
+	depth_limit_indicator = "...",
+	safe_output = true,
+})
+
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -31,10 +74,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
-
 	vim.api.nvim_create_autocmd("CursorHold", {
 		buffer = bufnr,
 		callback = function()
+			---@diagnostic disable-next-line: redefined-local
 			local opts = {
 				focusable = false,
 				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
@@ -47,8 +90,13 @@ local on_attach = function(client, bufnr)
 		end,
 	})
 
-	if client.name == "ccls" then
-		client.server_capabilities.documentFormattingProvider = false
+	--if client == "ccls" then
+	--	client.server_capabilities.documentFormattingProvider = false
+	--	client.server_capabilities.documentRangeFormattingProvider = false
+	--end
+
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
 	end
 end
 
@@ -60,12 +108,14 @@ for type, icon in pairs(signs) do
 end
 
 -- Setup lspconfig.
+--
+local lspconfig = require("lspconfig")
 
 local servers = { "ccls", "sumneko_lua", "pyright", "marksman", "rust_analyzer" }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, lsp in pairs(servers) do
-	require("lspconfig")[lsp].setup({
+	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		flags = {
 			debounce_text_changes = 150,
@@ -74,7 +124,7 @@ for _, lsp in pairs(servers) do
 	})
 end
 
-require("lspconfig").ccls.setup({
+lspconfig["ccls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	init_options = {
@@ -94,14 +144,19 @@ require("lspconfig").ccls.setup({
 	},
 })
 
-require("lspconfig").sumneko_lua.setup({
+lspconfig["sumneko_lua"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {
 				global = { "vim" },
+				disable = { "undefined-global" },
 			},
 		},
+		workspace = {
+			library = vim.api.nvim_get_runtime_file("", true),
+		},
+		telemetry = { enable = false },
 	},
 })

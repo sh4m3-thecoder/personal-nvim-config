@@ -8,7 +8,7 @@ local sources = {
 	formatting.clang_format.with({
 		filetypes = { "cpp", "c", "cs" },
 		extra_args = {
-			"-style=webkit",
+			"--fallback-style=webkit",
 		},
 	}),
 }

@@ -21,29 +21,24 @@ vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.clipboard = "unnamed"
 
---THEMEEEEEEEEEEEEE ily iris <3 
-vim.cmd.colorscheme('catppuccin')
+--THEMEEEEEEEEEEEEE ily iris <3
+vim.cmd.colorscheme("catppuccin")
 --Global Customization
 vim.opt.lazyredraw = true
 
 -- Shell Customization
 vim.opt.shell = "pwsh.exe"
 
---Launch nvim-tree
-require("nvim-tree").setup({
-	sort_by = "case_sensitive",
-	view = {
-		adaptive_size = true,
-		mappings = {
-			list = {
-			{ key = "u", action = "dir_up" },
-			},
-		},
-	},
-	renderer = {
-		group_empty = true,
-	},
-	filters = {
-		dotfiles = true,
-	},
-})
+--nvim notify
+local status, notify = pcall(require, "notify")
+if not status then
+	print("Nvim Notify is not installed")
+else
+	vim.notify = require("notify")
+end
+
+notify.setup{
+	fps = 60,
+	stages = "slide",
+	timeout = 2500,
+}

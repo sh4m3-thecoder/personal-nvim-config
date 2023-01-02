@@ -1,4 +1,16 @@
-return require("packer").startup(function(use)
+local packer = require("packer")
+
+packer.init({
+	display = {
+		open_fn = require("packer.util").float,
+		show_all_info = true,
+		prompt_border = "double",
+	},
+})
+
+vim.cmd([[packadd packer.nvim]])
+
+return packer.startup(function(use)
 	--Packer
 	use("wbthomason/packer.nvim")
 
@@ -8,8 +20,9 @@ return require("packer").startup(function(use)
 	--Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-	--lualine
-	use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons", opt = true })
+	--Statuslines and winbar
+	use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+	use({ "SmiteshP/nvim-navic", requires = { "neovim/nvim-lspconfig" } })
 
 	--LspConfig and Lspinstaller, and also the following configs because why not
 	use({
@@ -20,11 +33,9 @@ return require("packer").startup(function(use)
 
 	--nvim-tree
 	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-		},
+		"nvim-tree/nvim-tree.lua",
 		tag = "nightly",
+		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
 	-- auto pairs
@@ -38,8 +49,23 @@ return require("packer").startup(function(use)
 	-- startup
 	use({ "glepnir/dashboard-nvim" })
 
-	-- bufferline
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+	--toggleterm
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
+
+	--bufferline
+	use({
+		"akinsho/bufferline.nvim",
+		after = "catppuccin",
+		tag = "v3.*",
+		requires = "nvim-tree/nvim-web-devicons",
+		opt = false,
+	})
 
 	-- Code Completion
 	use({
@@ -71,17 +97,8 @@ return require("packer").startup(function(use)
 	-- xml-lua.vim
 	use("XeroOl/xml-lua.vim")
 
-	--toggleterm
-	use({
-		"s1n7ax/nvim-terminal",
-		config = function()
-			vim.opt.hidden = true
-			require("nvim-terminal").setup()
-		end,
-	})
-
 	-- arduino syntax highlighting
-	use("sudar/vim-arduino-snippets")
+	use({ "sudar/vim-arduino-snippets" })
 
 	--colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" })
@@ -91,4 +108,23 @@ return require("packer").startup(function(use)
 
 	--competitive programing heheheheeee
 	use("p00f/cphelper.nvim")
+
+	--indent indicators
+	use("lukas-reineke/indent-blankline.nvim")
+
+	--nvim-notify
+	use({ "rcarriga/nvim-notify" })
+
+	--surround
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	})
+
+	use("kdheepak/lazygit.nvim")
 end)

@@ -10,11 +10,12 @@ local function nkeymap(key, map)
 	keymap("n", key, map, ns)
 end
 
---Window Resize Keymaps
+--Personal keybinds
 keymap("n", "<S-Up>", ":resize +3 <CR>", s)
 keymap("n", "<S-Down>", ":resize -3 <CR>", s)
 keymap("n", "<S-Right>", ":vertical resize -3 <CR>", s)
 keymap("n", "<S-Left>", ":vertical resize +3 <CR>", s)
+keymap("n", "<leader>nt", "<cmd>NvimTreeToggle<CR>", ns)
 
 --Bufferline keymaps
 keymap("n", "]b", ":BufferLineCycleNext<CR>", ns)
@@ -27,7 +28,7 @@ keymap("n", "gb", ":BufferLinePick<CR>", ns)
 
 -- Telescope keybindings
 nkeymap("<leader>ff", "<cmd>Telescope find_files<cr>")
-nkeymap("<leader>fc", "<cmd>NvimTreeOpen ~/appdata/local/nvim")
+nkeymap("<leader>fc", "<cmd>NvimTreeOpen ~/appdata/local/nvim<cr>")
 nkeymap("<leader>bf", "<cmd>Telescope file_browser<cr>")
 nkeymap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nkeymap("<leader>fh", "<cmd>Telescope help_tags<cr>")
