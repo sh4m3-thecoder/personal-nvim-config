@@ -1,5 +1,4 @@
 local keymap = vim.api.nvim_set_keymap
-local n = { noremap = true }
 local s = { silent = true }
 local ns = {
 	noremap = true,
@@ -16,13 +15,14 @@ keymap("n", "<S-Down>", ":resize -3 <CR>", s)
 keymap("n", "<S-Right>", ":vertical resize -3 <CR>", s)
 keymap("n", "<S-Left>", ":vertical resize +3 <CR>", s)
 keymap("n", "<leader>nt", "<cmd>NvimTreeToggle<CR>", ns)
+keymap("n", "<leader>cc", "<cmd>Telescope colorscheme<CR>", ns)
 
 --Bufferline keymaps
-keymap("n", "]b", ":BufferLineCycleNext<CR>", ns)
-keymap("n", "[b", ":BufferLineCyclePrev<CR>", ns)
-keymap("n", "]B", ":BufferLineMoveNext<CR>", ns)
-keymap("n", "[B", ":BufferLineMovePrev<CR>", ns)
-keymap("n", "gb", ":BufferLinePick<CR>", ns)
+keymap("n", "]b", "<cmd>BufferLineCycleNext<CR>", ns)
+keymap("n", "[b", "<cmd>BufferLineCyclePrev<CR>", ns)
+keymap("n", "]B", "<cmd>BufferLineMoveNext<CR>", ns)
+keymap("n", "[B", "<cmd>BufferLineMovePrev<CR>", ns)
+keymap("n", "<space>gt", "<cmd>BufferLinePick<CR>", ns)
 
 --Lsp keymaps
 

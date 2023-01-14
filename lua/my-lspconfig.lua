@@ -111,7 +111,7 @@ end
 --
 local lspconfig = require("lspconfig")
 
-local servers = { "ccls", "sumneko_lua", "pyright", "marksman", "rust_analyzer" }
+local servers = { "ccls", "sumneko_lua", "pyright", "marksman", "rust_analyzer", "tsserver", "denols" }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, lsp in pairs(servers) do
@@ -159,4 +159,16 @@ lspconfig["sumneko_lua"].setup({
 		},
 		telemetry = { enable = false },
 	},
+})
+
+lspconfig["tsserver"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = lspconfig.util.root_pattern("package.json"),
+})
+
+lspconfig["denols"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })

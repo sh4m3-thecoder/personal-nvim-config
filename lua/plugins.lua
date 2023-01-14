@@ -14,9 +14,11 @@ return packer.startup(function(use)
 	--Packer
 	use("wbthomason/packer.nvim")
 
-	--Cobalt2 and onedark colorscheme
-	use({ "lalitmee/cobalt2.nvim", requires = "tjdevries/colorbuddy.nvim" })
-	use({ "navarasu/onedark.nvim" })
+	--themes
+	use("olimorris/onedarkpro.nvim")
+	use("marko-cerovac/material.nvim")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+
 	--Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
@@ -30,6 +32,8 @@ return packer.startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
+	--null-ls
+	use("jose-elias-alvarez/null-ls.nvim")
 
 	--nvim-tree
 	use({
@@ -97,17 +101,8 @@ return packer.startup(function(use)
 	-- xml-lua.vim
 	use("XeroOl/xml-lua.vim")
 
-	-- arduino syntax highlighting
-	use({ "sudar/vim-arduino-snippets" })
-
-	--colorscheme
-	use({ "catppuccin/nvim", as = "catppuccin" })
-
-	--null-ls
-	use("jose-elias-alvarez/null-ls.nvim")
-
 	--competitive programing heheheheeee
-	use("p00f/cphelper.nvim")
+	use({ "xeluxee/competitest.nvim", requires = "MunifTanjim/nui.nvim" })
 
 	--indent indicators
 	use("lukas-reineke/indent-blankline.nvim")

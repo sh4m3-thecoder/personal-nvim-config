@@ -45,7 +45,7 @@ db.custom_center = {
 		icon = "  ",
 		desc = "File Browser                            ",
 		action = "Telescope file_browser",
-		shortcut = "\\bw",
+		shortcut = "\\bf",
 	},
 	{
 		icon = "  ",

@@ -20,9 +20,12 @@ vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.clipboard = "unnamed"
+vim.cmd([[set laststatus=3]])
 
 --THEMEEEEEEEEEEEEE ily iris <3
-vim.cmd.colorscheme("catppuccin")
+vim.g.material_style = "palenight"
+vim.cmd.colorscheme("material")
+
 --Global Customization
 vim.opt.lazyredraw = true
 
@@ -37,8 +40,8 @@ else
 	vim.notify = require("notify")
 end
 
-notify.setup{
+notify.setup({
 	fps = 60,
 	stages = "slide",
 	timeout = 2500,
-}
+})

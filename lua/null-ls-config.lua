@@ -4,7 +4,7 @@ local formatting = null_ls.builtins.formatting
 local sources = {
 	formatting.blue,
 	formatting.stylua,
-	formatting.eslint,
+	formatting.prettier,
 	formatting.clang_format.with({
 		filetypes = { "cpp", "c", "cs" },
 		extra_args = {

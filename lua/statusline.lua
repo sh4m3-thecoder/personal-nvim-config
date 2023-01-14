@@ -1,12 +1,12 @@
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "catppuccin",
+		theme = "auto",
 		component_separators = { left = "|", right = "|" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = {},
+		disabled_filetypes = { "NvimTree", "dashboard", "TelescopePrompt", "dashboardpreview" },
 		always_divide_middle = true,
-		globalstatus = false,
+		globalstatus = true,
 	},
 	sections = {
 		lualine_a = { "mode" },

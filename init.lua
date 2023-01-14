@@ -1,6 +1,7 @@
 --Bare essentials
 require("keybinds")
 require("plugins")
+require("themes")
 require("config")
 
 --Plugins
@@ -15,14 +16,14 @@ require("toggleterm-config")
 require("discord-config")
 require("telescope-config")
 require("nvimtree-config")
+require("competitest-config")
 
 --Beautify
-require("startup-config")
-require("statusline")
-require("devicons")
 require("treesitter-config")
+require("startup-config")
+require("devicons")
+require("statusline")
 require("bufferline-config")
-require("catpuccin")
 require("indent-blankline-config")
 
 --Special to neovide

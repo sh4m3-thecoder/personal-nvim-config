@@ -1,8 +1,14 @@
 vim.cmd([[packadd bufferline.nvim]])
+
+if vim.cmd([[colorscheme]]) == "catppuccin" then
+	opt = require("catppuccin.groups.integrations.bufferline").get()
+end
+
 vim.opt.termguicolors = true
+
 require("bufferline").setup({
-	highlights = require("catppuccin.groups.integrations.bufferline").get(),
 	options = {
+		highlights = opt,
 		show_buffer_close_icons = false,
 		diagnostics = "nvim_lsp",
 		offsets = {
