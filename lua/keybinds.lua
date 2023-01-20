@@ -24,7 +24,8 @@ keymap("n", "]B", "<cmd>BufferLineMoveNext<CR>", ns)
 keymap("n", "[B", "<cmd>BufferLineMovePrev<CR>", ns)
 keymap("n", "<space>gt", "<cmd>BufferLinePick<CR>", ns)
 
---Lsp keymaps
+-- Nabla keymap
+keymap("n", "<space>p", "<cmd>lua require('nabla').popup()<CR>", ns)
 
 -- Telescope keybindings
 nkeymap("<leader>ff", "<cmd>Telescope find_files<cr>")

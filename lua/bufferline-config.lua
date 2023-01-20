@@ -1,7 +1,9 @@
 vim.cmd([[packadd bufferline.nvim]])
 
+Opt = nil
+
 if vim.cmd([[colorscheme]]) == "catppuccin" then
-	opt = require("catppuccin.groups.integrations.bufferline").get()
+	Opt = require("catppuccin.groups.integrations.bufferline").get()
 end
 
 vim.opt.termguicolors = true

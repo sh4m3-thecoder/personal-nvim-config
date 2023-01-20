@@ -1,1 +1,1 @@
-vim.o.guifont = "JetBrainsMono NF:h10"
+vim.o.guifont = "Iosevka:h11"

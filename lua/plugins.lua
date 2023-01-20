@@ -115,11 +115,29 @@ return packer.startup(function(use)
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
+			require("nvim-surround").setup({})
+		end,
+	})
+
+	--lazygit
+	use("kdheepak/lazygit.nvim")
+
+	--True zen
+	use({
+		"loqusion/true-zen.nvim",
+		config = function()
+			require("true-zen").setup({
+				mode = {},
 			})
 		end,
 	})
 
-	use("kdheepak/lazygit.nvim")
+	use({
+		"jakewvincent/texmagic.nvim",
+		config = function()
+			require("texmagic").setup({
+				-- Config goes here; leave blank for defaults
+			})
+		end,
+	})
 end)

@@ -1,3 +1,7 @@
+--THEMEEEEEEEEEEEEE ily iris <3
+vim.g.material_style = "palenight"
+vim.cmd.colorscheme("catppuccin")
+
 require("catppuccin").setup({
 	--
 	flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -18,14 +22,14 @@ require("catppuccin").setup({
 		conditionals = { "italic" },
 		loops = { "italic" },
 		functions = {},
-		keywords = { "italic" },
+		keywords = { "bold" },
 		strings = {},
 		variables = {},
 		numbers = {},
-		booleans = { "bold" },
+		booleans = {},
 		properties = {},
-		types = {},
-		operators = {},
+		types = { "italic" },
+		operators = { "bold" },
 	},
 	color_overrides = {},
 	custom_highlights = {},
@@ -62,7 +66,7 @@ require("material").setup({
 		},
 		strings = { --[[ bold = true ]]
 		},
-		keywords = { underline = true },
+		keywords = { italic = true },
 		functions = { --[[ bold = true, undercurl = true ]]
 		},
 		variables = {},
@@ -72,7 +76,7 @@ require("material").setup({
 
 	plugins = { -- Uncomment the plugins that you use to highlight them
 		-- Available plugins:
-		-- "dap",
+		"dap",
 		"dashboard",
 		-- "gitsigns",
 		-- "hop",
@@ -83,9 +87,9 @@ require("material").setup({
 		"nvim-cmp",
 		"nvim-navic",
 		"nvim-tree",
-		-- "nvim-web-devicons",
+		"nvim-web-devicons",
 		-- "sneak",
-		-- "telescope",
+		"telescope",
 		-- "trouble",
 		-- "which-key",
 	},
@@ -100,7 +104,7 @@ require("material").setup({
 
 	high_visibility = {
 		lighter = false, -- Enable higher contrast text for lighter style
-		darker = false, -- Enable higher contrast text for darker style
+		darker = true, -- Enable higher contrast text for darker style
 	},
 
 	lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
@@ -135,13 +139,13 @@ require("onedarkpro").setup({
 		virtual_text = "NONE", -- Style that is applied to virtual text
 	},
 	options = {
-		bold = true, -- Use bold styles?
-		italic = true, -- Use italic styles?
-		underline = true, -- Use underline styles?
-		undercurl = true, -- Use undercurl styles?
+		bold = false, -- Use bold styles?
+		italic = false, -- Use italic styles?
+		underline = false, -- Use underline styles?
+		undercurl = false, -- Use undercurl styles?
 		cursorline = false, -- Use cursorline highlighting?
 		transparency = false, -- Use a transparent background?
 		terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-		highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
+		highlight_inactive_windows = true, -- When the window is out of focus, change the normal background?
 	},
 })

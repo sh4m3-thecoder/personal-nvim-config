@@ -13,10 +13,10 @@ require("my-lspconfig")
 
 --Utility
 require("toggleterm-config")
-require("discord-config")
 require("telescope-config")
 require("nvimtree-config")
 require("competitest-config")
+require("discord-config")
 
 --Beautify
 require("treesitter-config")
