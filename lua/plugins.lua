@@ -51,7 +51,21 @@ return packer.startup(function(use)
 	})
 
 	-- startup
-	use({ "glepnir/dashboard-nvim" })
+	use({
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
+	})
+
+	--gitsigns
+	use({
+		"lewis6991/gitsigns.nvim",
+		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 
 	--toggleterm
 	use({
@@ -140,4 +154,6 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+
+	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
 end)

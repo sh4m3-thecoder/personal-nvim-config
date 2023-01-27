@@ -1,1 +1,1 @@
-vim.o.guifont = "Iosevka:h11"
+vim.o.guifont = "CozetteVector:h11"

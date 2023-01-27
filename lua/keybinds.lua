@@ -29,8 +29,6 @@ keymap("n", "<space>p", "<cmd>lua require('nabla').popup()<CR>", ns)
 
 -- Telescope keybindings
 nkeymap("<leader>ff", "<cmd>Telescope find_files<cr>")
-nkeymap("<leader>fc", "<cmd>NvimTreeOpen ~/appdata/local/nvim<cr>")
-nkeymap("<leader>bf", "<cmd>Telescope file_browser<cr>")
 nkeymap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nkeymap("<leader>fh", "<cmd>Telescope help_tags<cr>")
 nkeymap("<leader>of", "<cmd>Telescope oldfiles<cr>")
