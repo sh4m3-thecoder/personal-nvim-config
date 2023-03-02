@@ -188,4 +188,4 @@ lspconfig["texlab"].setup({
 			},
 		},
 	},
-	
+})
