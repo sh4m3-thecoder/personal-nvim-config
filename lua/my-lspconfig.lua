@@ -47,7 +47,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+vim.keymap.set("n", "<space>q", "<cmd>TroubleToggle<cr>", opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -68,7 +68,7 @@ local on_attach = function(client, bufnr)
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+	vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "<space>f", function()
@@ -111,7 +111,7 @@ end
 --
 local lspconfig = require("lspconfig")
 
-local servers = { "ccls", "sumneko_lua", "pyright", "marksman", "rust_analyzer", "tsserver", "denols", "texlab" }
+local servers = { "ccls", "lua_ls", "pyright", "marksman", "rust_analyzer", "tsserver", "denols", "texlab" }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, lsp in pairs(servers) do
@@ -144,7 +144,7 @@ lspconfig["ccls"].setup({
 	},
 })
 
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -173,7 +173,7 @@ lspconfig["denols"].setup({
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
-require("lspconfig").texlab.setup({
+lspconfig["texlab"].setup({
 	cmd = { "texlab" },
 	filetypes = { "tex", "bib" },
 	settings = {
@@ -188,4 +188,4 @@ require("lspconfig").texlab.setup({
 			},
 		},
 	},
-})
+	

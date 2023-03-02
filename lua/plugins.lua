@@ -14,6 +14,9 @@ return packer.startup(function(use)
 	--Packer
 	use("wbthomason/packer.nvim")
 
+	--Faster load times
+	use("lewis6991/impatient.nvim")
+
 	--themes
 	use("olimorris/onedarkpro.nvim")
 	use("marko-cerovac/material.nvim")
@@ -32,6 +35,15 @@ return packer.startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
+
+	use({
+		"folke/trouble.nvim",
+		requires = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({})
+		end,
+	})
+
 	--null-ls
 	use("jose-elias-alvarez/null-ls.nvim")
 
@@ -156,4 +168,17 @@ return packer.startup(function(use)
 	})
 
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 end)

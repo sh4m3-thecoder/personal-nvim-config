@@ -1,15 +1,9 @@
 --Bare essentials
+require("impatient")
 require("keybinds")
 require("plugins")
 require("themes")
 require("config")
-
---Plugins
-
---Lsp
-require("completion-config")
-require("null-ls-config")
-require("my-lspconfig")
 
 --Utility
 require("toggleterm-config")
@@ -25,6 +19,11 @@ require("devicons")
 require("statusline")
 require("bufferline-config")
 require("indent-blankline-config")
+
+--Lsp
+require("completion-config")
+require("null-ls-config")
+require("my-lspconfig")
 
 --Special to neovide
 if vim.g.neovide then
