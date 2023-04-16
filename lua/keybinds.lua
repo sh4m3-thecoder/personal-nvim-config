@@ -60,6 +60,11 @@ wk.register({
 		f = { "<cmd>Telescope find_files<cr>", "Find File" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false },
 	},
+	C = {
+		name = "CompetiTest",
+	Rc = { "<cmd>CompetiTestReceive contest<cr>", "Receive Contest" },
+	r = { "<cmd>CompetiTestRun<cr>", "Run File with Testcases " },
+	}
 }, { prefix = "<leader>" })
 
 wk.register({

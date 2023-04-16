@@ -1,7 +1,3 @@
-vim.cmd([[packadd bufferline.nvim]])
-
-Opt = nil
-
 if vim.cmd([[colorscheme]]) == "catppuccin" then
 	Opt = require("catppuccin.groups.integrations.bufferline").get()
 end

@@ -1,7 +1,6 @@
---Bare essentials
-require("impatient")
-require("keybinds")
+--Bare Essentials
 require("plugins")
+require("keybinds")
 require("themes")
 require("config")
 
@@ -27,5 +26,5 @@ require("my-lspconfig")
 
 --Special to neovide
 if vim.g.neovide then
-	require("neovide-lua-config")
+	vim.o.guifont = "CozetteVector:h11"
 end
