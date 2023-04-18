@@ -1,5 +1,3 @@
-local wk = require("which-key")
-
 NORMAL = "n"
 INSERT = "i"
 VISUAL = "v"
@@ -36,40 +34,15 @@ vim.keymap.set("n", "<S-Left>", ":vertical resize +3 <CR>", s)
 vim.keymap.set("n", "<C-Tab>", "<cmd>BufferLineCycleNext<CR>", ns)
 vim.keymap.set("n", "<S-C-Tab>", "<cmd>BufferLineCyclePrev<CR>", ns)
 
--- Telescope keybindings
-
-wk.register({
-	f = "Format File",
-	b = {
-		name = "Buffers",
-		f = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-		g = { "<cmd>BufferLinePick<cr>", "Pick Bufferline" },
-	},
-	h = { "<cmd>Telescope help_tags<cr>", "Show Help Tags" },
-	w = { name = "Workspace", a = "Add workspace" },
-	q = { "<cmd>TroubleToggle<cr>", "Open Loclist" },
-	g = {
-		name = "Goto",
-		d = { vim.lsp.buf.definition, "Definition" },
-		D = { vim.lsp.buf.declaration, "Declaration" },
-		r = { "References" },
-	},
-	t = {
-		name = "Telescope",
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorschemes" },
-		f = { "<cmd>Telescope find_files<cr>", "Find File" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false },
-	},
-	C = {
-		name = "CompetiTest",
-	Rc = { "<cmd>CompetiTestReceive contest<cr>", "Receive Contest" },
-	r = { "<cmd>CompetiTestRun<cr>", "Run File with Testcases " },
-	}
-}, { prefix = "<leader>" })
-
-wk.register({
-	["<leader>e"] = { vim.diagnostic.open_float, "Open Float" },
-	["<leader>E"] = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
-	["<leader>D"] = "Type Definition",
-	["<leader>ca"] = "Code Action",
+keymaps({
+	["<leader>/"] = { mode = { NORMAL }, "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy find" } },
+	["<leader>ff"] = { mode = { NORMAL }, "<cmd> Telescope fd<cr>", { desc = "Find files" } },
+	["<leader>fr"] = { mode = { NORMAL }, "<cmd> Telescope oldfiles<cr>", { desc = "Find recent files" } },
+	["<leader>fn"] = { mode = { NORMAL }, "<cmd>enew<cr>", { desc = "New File" } },
+	["<leader>bf"] = { mode = { NORMAL }, "<cmd>Telescope buffers<cr>", { desc = "Find buffer" } },
+	["<leader>bd"] = { mode = { NORMAL }, "<cmd>BufferLinePickClose<cr>", { desc = "Pick a buffer to close" } },
+	["<leader>E"] = { mode = { NORMAL }, "<cmd>NvimTreeToggle<cr>", { desc = "Open explorer" } },
+	["<leader>ht"] = { mode = { NORMAL }, "<cmd>Telescope help_tags<cr>", { desc = "Search help tags" } },
+	["<leader>CR"] = { mode = { NORMAL }, "<cmd>CompetiTestRecieve<cr>", { desc = "Recieve testcases" } },
+	["<leader>Cr"] = { mode = { NORMAL }, "<cmd>CompetiTestRun<cr>", { desc = "Run testcases" } },
 })

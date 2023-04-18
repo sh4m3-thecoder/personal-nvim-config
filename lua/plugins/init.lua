@@ -1,4 +1,5 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" if not vim.loop.fs_stat(lazypath) then
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -32,11 +33,10 @@ local plugins = {
 	{ "SmiteshP/nvim-navic", dependencies = { "neovim/nvim-lspconfig" } },
 
 	--LspConfig and Lspinstaller, and also the following configs beca why not
-	
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	
+
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
 
 	{
 		"folke/trouble.nvim",
@@ -100,18 +100,17 @@ local plugins = {
 	},
 
 	-- Code Completion
-	
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		-- luasnip
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
-		-- snippets
-		"rafamadriz/friendly-snippets",
 
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/nvim-cmp",
+	-- luasnip
+	"L3MON4D3/LuaSnip",
+	"saadparwaiz1/cmp_luasnip",
+	-- snippets
+	"rafamadriz/friendly-snippets",
 
 	-- discord presence
 	"andweeb/presence.nvim",
@@ -122,9 +121,9 @@ local plugins = {
 	-- telescope and its plugins
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { { "nvim-lua/plenary.nvim" } }
+		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
-	 "nvim-telescope/telescope-file-browser.nvim" ,
+	"nvim-telescope/telescope-file-browser.nvim",
 
 	-- xml-lua.vim
 	"XeroOl/xml-lua.vim",
@@ -136,7 +135,7 @@ local plugins = {
 	"lukas-reineke/indent-blankline.nvim",
 
 	--nvim-notify
-	 "rcarriga/nvim-notify" ,
+	"rcarriga/nvim-notify",
 
 	--surround
 	{
@@ -187,3 +186,22 @@ local plugins = {
 
 require("lazy").setup(plugins)
 
+--Lsp
+require("plugins.completion-config")
+require("plugins.null-ls-config")
+require("plugins.my-lspconfig")
+
+--Utility
+require("plugins.toggleterm-config")
+require("plugins.telescope-config")
+require("plugins.nvimtree-config")
+require("plugins.competitest-config")
+require("plugins.discord-config")
+
+--Beautify
+require("plugins.treesitter-config")
+require("plugins.startup-config")
+require("plugins.devicons")
+require("plugins.statusline")
+require("plugins.bufferline-config")
+require("plugins.indent-blankline-config")
