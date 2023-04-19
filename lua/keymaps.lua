@@ -43,6 +43,8 @@ keymaps({
 	["<leader>bd"] = { mode = { NORMAL }, "<cmd>BufferLinePickClose<cr>", { desc = "Pick a buffer to close" } },
 	["<leader>E"] = { mode = { NORMAL }, "<cmd>NvimTreeToggle<cr>", { desc = "Open explorer" } },
 	["<leader>ht"] = { mode = { NORMAL }, "<cmd>Telescope help_tags<cr>", { desc = "Search help tags" } },
-	["<leader>CR"] = { mode = { NORMAL }, "<cmd>CompetiTestRecieve<cr>", { desc = "Recieve testcases" } },
+	["<leader>CRp"] = { mode = { NORMAL }, "<cmd>CompetiTestReceive problem<cr>", { desc = "Recieve problem" } },
+	["<leader>CRc"] = { mode = { NORMAL }, "<cmd>CompetiTestReceive contest<cr>", { desc = "Recieve contest" } },
+	["<leader>CRt"] = { mode = { NORMAL }, "<cmd>CompetiTestReceive testcases<cr>", { desc = "Recieve testcases" } },
 	["<leader>Cr"] = { mode = { NORMAL }, "<cmd>CompetiTestRun<cr>", { desc = "Run testcases" } },
 })
