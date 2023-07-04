@@ -20,5 +20,5 @@ require("themes")
 require("keymaps")
 --Special to neovide
 if vim.g.neovide then
-	vim.o.guifont = "CozetteVector:h11"
+	vim.o.guifont = "Iosevka NFM:h12"
 end

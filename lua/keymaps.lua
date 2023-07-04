@@ -40,6 +40,7 @@ keymaps({
 	["<leader>fr"] = { mode = { NORMAL }, "<cmd> Telescope oldfiles<cr>", { desc = "Find recent files" } },
 	["<leader>fn"] = { mode = { NORMAL }, "<cmd>enew<cr>", { desc = "New File" } },
 	["<leader>bf"] = { mode = { NORMAL }, "<cmd>Telescope buffers<cr>", { desc = "Find buffer" } },
+	["<leader>bp"] = { mode = { NORMAL }, "<cmd>BufferLinePick<cr>", { desc = "Pick a buffer to choose" } },
 	["<leader>bd"] = { mode = { NORMAL }, "<cmd>BufferLinePickClose<cr>", { desc = "Pick a buffer to close" } },
 	["<leader>E"] = { mode = { NORMAL }, "<cmd>NvimTreeToggle<cr>", { desc = "Open explorer" } },
 	["<leader>ht"] = { mode = { NORMAL }, "<cmd>Telescope help_tags<cr>", { desc = "Search help tags" } },
@@ -47,4 +48,5 @@ keymaps({
 	["<leader>CRc"] = { mode = { NORMAL }, "<cmd>CompetiTestReceive contest<cr>", { desc = "Recieve contest" } },
 	["<leader>CRt"] = { mode = { NORMAL }, "<cmd>CompetiTestReceive testcases<cr>", { desc = "Recieve testcases" } },
 	["<leader>Cr"] = { mode = { NORMAL }, "<cmd>CompetiTestRun<cr>", { desc = "Run testcases" } },
+	["<leader>Ca"] = { mode = { NORMAL }, "<cmd>CompetiTestAdd<cr>", { desc = "Add Testcases" } },
 })
