@@ -72,6 +72,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
+
 	"nvim-telescope/telescope-file-browser.nvim",
 
 	-- xml-lua.vim
@@ -144,6 +145,7 @@ return {
 				-- or leave it empty to  the default settings
 				-- refer to the configuration section below
 			})
-		end,
-	},
-}
+		end
+	}}
+
+
