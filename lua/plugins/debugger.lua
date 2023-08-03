@@ -3,13 +3,12 @@ local plugins = {
 		"rcarriga/nvim-dap-ui",
 		event = "VeryLazy",
 		dependencies = {
-			"mfussenegger/nvim-dap"
+			"mfussenegger/nvim-dap",
 		},
-		config = function ()
+		config = function()
 			local dap = require("dap")
-			local dapui = require('dapui')
+			local dapui = require("dapui")
 			dapui.setup()
-			local dap, dapui = require("dap"), require("dapui")
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()
 			end
@@ -19,7 +18,7 @@ local plugins = {
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close()
 			end
-		end
+		end,
 	},
 	{
 		"jay-babu/mason-nvim-dap.nvim",
@@ -28,7 +27,7 @@ local plugins = {
 			"williamboman/mason.nvim",
 			"mfussenegger/nvim-dap",
 		},
-		opts = { handlers = {}},
+		opts = { handlers = {} },
 	},
 	"mfussenegger/nvim-dap",
 }
